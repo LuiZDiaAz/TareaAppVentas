@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e7c44592fe64f1d8d01565369cb0c4f" Name="Diagram1">
+        <EntityTypeShape EntityType="AppVentaBDModel.detalleVenta" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.producto" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.roles_usuario" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.tb_cliente" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.tb_documento" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.tb_usuarios" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppVentaBDModel.tb_venta" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="AppVentaBDModel.FK__detalleVe__idPro__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="AppVentaBDModel.FK__detalleVe__idVen__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="AppVentaBDModel.FK__roles_usu__id_us__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="AppVentaBDModel.FK__tb_venta__iDClie__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="AppVentaBDModel.FK__tb_venta__idDocu__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="AppVentaBDModel.FK__tb_venta__iDUsua__440B1D61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
