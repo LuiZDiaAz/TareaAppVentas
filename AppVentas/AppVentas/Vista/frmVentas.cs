@@ -24,10 +24,13 @@ namespace AppVentas.Vista
             using (AppVentaBDEntities db = new AppVentaBDEntities())
             {
                 var tb_V = db.tb_venta;
-
+                txtIdNumeracion.Text = "1";
                 foreach(var iterardatosventa in tb_V)
                 {
-                    txtIdNumeracion.Text = iterardatosventa.idVenta.ToString();
+                    int idVenta = iterardatosventa.idVenta;
+                    int suma = idVenta + 1;
+                    txtIdNumeracion.Text = suma.ToString();
+                   
                 }
             }
         }
@@ -65,15 +68,26 @@ namespace AppVentas.Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-
-            dgvVentas.Rows.Add(txtCodigoPro.Text,txtNombrePro.Text,txtPrecioPro.Text,txtCantidad.Text,txtTotal.Text);
             try
             {
                 calculo();
             }
             catch(Exception ex)
             {
+
+            }
+
+            dgvVentas.Rows.Add(txtCodigoPro.Text, txtNombrePro.Text, txtPrecioPro.Text, txtCantidad.Text, txtTotal.Text);
+            Double suma = 0;
+            for (int i=0;i<dgvVentas.RowCount;i++) {
+                String datodAOperar = dgvVentas.Rows[i].Cells[4].Value.ToString();
+                Double datosConvertidos = Convert.ToDouble(datodAOperar);
+                //Double datosConvertidos1 = Double.Parse(datodAOperar);
+                
+                //suma = suma + datosConvertidos;
+                suma += datosConvertidos;
+
+                txtTotalFinal.Text = suma.ToString();
 
             }
         }
@@ -102,6 +116,50 @@ namespace AppVentas.Vista
                 MessageBox.Show("No se puede agregar datos menos a 0");
                 txtCantidad.Select();
                 //MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void bttnGuardarVenta_Click(object sender, EventArgs e)
+        {
+            using (AppVentaBDEntities db = new AppVentaBDEntities())
+            {
+                tb_venta tb_v = new tb_venta();
+                String comboTipoDoc = cmbTipodocu.SelectedValue.ToString();
+                String comboCliente = cmbCliente.SelectedValue.ToString();
+                tb_v.idDocumento = Convert.ToInt32(comboTipoDoc);
+                tb_v.iDCliente = Convert.ToInt32(comboCliente);
+                tb_v.iDUsuario = 1;
+                tb_v.totalVenta = Convert.ToDecimal(txtTotalFinal.Text);
+                tb_v.fecha = Convert.ToDateTime(dtpFecha.Text);
+                db.tb_venta.Add(tb_v);
+                db.SaveChanges();
+
+
+                detalleVenta dete = new detalleVenta();
+                for (int i = 0; i < dgvVentas.RowCount; i++)
+                {
+                    String idProducto = dgvVentas.Rows[i].Cells[0].Value.ToString();
+                    int idProductosConvertidos = Convert.ToInt32(idProducto);
+
+                    String cantidad = dgvVentas.Rows[i].Cells[3].Value.ToString();
+                    int cantidadConvertidos = Convert.ToInt32(cantidad);
+
+                    String precio = dgvVentas.Rows[i].Cells[2].Value.ToString();
+                    Decimal precioConvertidos = Convert.ToDecimal(precio);
+
+                    String total = dgvVentas.Rows[i].Cells[4].Value.ToString();
+                    Decimal totalConvertidos = Convert.ToInt32(total);
+
+                    dete.idVenta = Convert.ToInt32(txtIdNumeracion.Text);
+                    dete.idProducto = idProductosConvertidos;
+                    dete.cantidad = cantidadConvertidos;
+                    dete.precio = precioConvertidos;
+                    dete.total = totalConvertidos;
+                    db.detalleVenta.Add(dete);
+                    db.SaveChanges();
+
+                }
+
             }
         }
     }

@@ -55,7 +55,9 @@
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.cmbTipodocu = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTotalFinal = new System.Windows.Forms.TextBox();
+            this.bttnGuardarVenta = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(796, 29);
+            this.label2.Location = new System.Drawing.Point(646, 29);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
@@ -85,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(796, 122);
+            this.label3.Location = new System.Drawing.Point(646, 122);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 20);
@@ -294,7 +296,7 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(871, 21);
+            this.cmbCliente.Location = new System.Drawing.Point(721, 21);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(216, 28);
             this.cmbCliente.TabIndex = 22;
@@ -302,7 +304,7 @@
             // cmbTipodocu
             // 
             this.cmbTipodocu.FormattingEnabled = true;
-            this.cmbTipodocu.Location = new System.Drawing.Point(949, 114);
+            this.cmbTipodocu.Location = new System.Drawing.Point(799, 114);
             this.cmbTipodocu.Name = "cmbTipodocu";
             this.cmbTipodocu.Size = new System.Drawing.Size(216, 28);
             this.cmbTipodocu.TabIndex = 23;
@@ -317,14 +319,32 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Total $:";
             // 
-            // textBox1
+            // txtTotalFinal
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(160, 663);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 49);
-            this.textBox1.TabIndex = 25;
+            this.txtTotalFinal.Enabled = false;
+            this.txtTotalFinal.Location = new System.Drawing.Point(160, 663);
+            this.txtTotalFinal.Multiline = true;
+            this.txtTotalFinal.Name = "txtTotalFinal";
+            this.txtTotalFinal.Size = new System.Drawing.Size(134, 49);
+            this.txtTotalFinal.TabIndex = 25;
+            // 
+            // bttnGuardarVenta
+            // 
+            this.bttnGuardarVenta.Location = new System.Drawing.Point(425, 591);
+            this.bttnGuardarVenta.Name = "bttnGuardarVenta";
+            this.bttnGuardarVenta.Size = new System.Drawing.Size(103, 29);
+            this.bttnGuardarVenta.TabIndex = 27;
+            this.bttnGuardarVenta.Text = "Guardar";
+            this.bttnGuardarVenta.UseVisualStyleBackColor = true;
+            this.bttnGuardarVenta.Click += new System.EventHandler(this.bttnGuardarVenta_Click);
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.CustomFormat = "yyyy-MM-dd";
+            this.dtpFecha.Location = new System.Drawing.Point(1021, 24);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(337, 27);
+            this.dtpFecha.TabIndex = 28;
             // 
             // frmVentas
             // 
@@ -333,7 +353,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1395, 729);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.bttnGuardarVenta);
+            this.Controls.Add(this.txtTotalFinal);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbTipodocu);
             this.Controls.Add(this.cmbCliente);
@@ -396,7 +418,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTotalFinal;
         public System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Button bttnGuardarVenta;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }
