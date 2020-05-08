@@ -112,8 +112,7 @@ namespace AppVentas.Vista
             }
             catch (Exception ex)
             {
-                txtCantidad.Text = "0";
-                MessageBox.Show("No se puede agregar datos menos a 0");
+                txtCantidad.Text = "1";
                 txtCantidad.Select();
                 //MessageBox.Show(ex.ToString());
             }
@@ -160,6 +159,51 @@ namespace AppVentas.Vista
 
                 }
 
+            }
+            RetornoId();
+        }
+
+        private void textBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(txtbusquedacodigobarra.Text == "")
+            {
+                if (e.KeyCode== Keys.Enter)
+                {
+                    bttnBuscar.PerformClick();
+                }
+            }else if(e.KeyCode == Keys.Enter)
+            {
+                using (AppVentaBDEntities db = new AppVentaBDEntities())
+                {
+                    producto pr = new producto();
+                    int buscar = int.Parse(txtbusquedacodigobarra.Text);
+                    pr = db.producto.Where(idBusqueda => idBusqueda.idProducto == buscar).First();
+                    txtCodigoPro.Text = Convert.ToString(pr.idProducto);
+                    txtNombrePro.Text = Convert.ToString(pr.nombreProducto);
+                    txtPrecioPro.Text = Convert.ToString(pr.precioProducto);
+                    txtCantidad.Focus();
+                    txtbusquedacodigobarra.Text = "";
+                }
+            }
+        }
+
+        int intentos = 1;
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                if (intentos == 2)
+                {
+                    btnadd.PerformClick();
+                    txtCodigoPro.Text = "";
+                    txtNombrePro.Text = "";
+                    txtPrecioPro.Text = "";
+                    txtTotal.Text = "";
+                    intentos = 0;
+                    txtCantidad.Text = "1";
+                    txtbusquedacodigobarra.Focus();
+                }
+                intentos += 1;
             }
         }
     }

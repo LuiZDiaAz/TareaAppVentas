@@ -38,9 +38,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.bttnBuscar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
             this.txtIdNumeracion = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtbusquedacodigobarra = new System.Windows.Forms.TextBox();
             this.txtCodigoPro = new System.Windows.Forms.TextBox();
             this.txtPrecioPro = new System.Windows.Forms.TextBox();
             this.txtNombrePro = new System.Windows.Forms.TextBox();
@@ -171,16 +171,16 @@
             this.bttnBuscar.UseVisualStyleBackColor = true;
             this.bttnBuscar.Click += new System.EventHandler(this.bttnBuscar_Click);
             // 
-            // button2
+            // btnadd
             // 
-            this.button2.Location = new System.Drawing.Point(315, 591);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 29);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Agregar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnadd.Location = new System.Drawing.Point(315, 591);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(103, 29);
+            this.btnadd.TabIndex = 11;
+            this.btnadd.Text = "Agregar";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtIdNumeracion
             // 
@@ -190,12 +190,13 @@
             this.txtIdNumeracion.Size = new System.Drawing.Size(216, 27);
             this.txtIdNumeracion.TabIndex = 12;
             // 
-            // textBox3
+            // txtbusquedacodigobarra
             // 
-            this.textBox3.Location = new System.Drawing.Point(170, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 27);
-            this.textBox3.TabIndex = 15;
+            this.txtbusquedacodigobarra.Location = new System.Drawing.Point(170, 159);
+            this.txtbusquedacodigobarra.Name = "txtbusquedacodigobarra";
+            this.txtbusquedacodigobarra.Size = new System.Drawing.Size(216, 27);
+            this.txtbusquedacodigobarra.TabIndex = 15;
+            this.txtbusquedacodigobarra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyUp);
             // 
             // txtCodigoPro
             // 
@@ -229,6 +230,7 @@
             this.txtCantidad.TabIndex = 19;
             this.txtCantidad.Text = "1";
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyUp);
             // 
             // txtTotal
             // 
@@ -348,7 +350,7 @@
             // 
             // frmVentas
             // 
-            this.AcceptButton = this.button2;
+            this.AcceptButton = this.btnadd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -365,9 +367,9 @@
             this.Controls.Add(this.txtNombrePro);
             this.Controls.Add(this.txtPrecioPro);
             this.Controls.Add(this.txtCodigoPro);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtbusquedacodigobarra);
             this.Controls.Add(this.txtIdNumeracion);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnadd);
             this.Controls.Add(this.bttnBuscar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -402,9 +404,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bttnBuscar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.TextBox txtIdNumeracion;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtbusquedacodigobarra;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.ComboBox cmbCliente;
