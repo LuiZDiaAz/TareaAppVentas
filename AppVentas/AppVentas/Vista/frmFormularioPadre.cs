@@ -23,5 +23,10 @@ namespace AppVentas.Vista
             venta.MdiParent = this;
             venta.Show();
         }
+
+        private void frmFormularioPadre_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

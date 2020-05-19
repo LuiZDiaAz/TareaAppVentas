@@ -161,6 +161,8 @@ namespace AppVentas.Vista
 
             }
             RetornoId();
+            dgvVentas.Rows.Clear();
+            txtTotalFinal.Text = "";
         }
 
         private void textBox3_KeyUp(object sender, KeyEventArgs e)
@@ -183,6 +185,7 @@ namespace AppVentas.Vista
                     txtPrecioPro.Text = Convert.ToString(pr.precioProducto);
                     txtCantidad.Focus();
                     txtbusquedacodigobarra.Text = "";
+                    intentos = 2;
                 }
             }
         }
@@ -205,6 +208,11 @@ namespace AppVentas.Vista
                 }
                 intentos += 1;
             }
+        }
+
+        private void bttnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

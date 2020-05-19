@@ -16,23 +16,25 @@ namespace AppVentas.Vista
         {
             InitializeComponent();
         }
-
+        frmUsuario f = new frmUsuario();
         private void uSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuario f = new frmUsuario();
             f.Show();
         }
-
+        frmRoles form = new frmRoles();
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRoles f = new frmRoles();
-            f.Show();
+            form.Show();
         }
-
+        frmFormularioPadre formu = new frmFormularioPadre();
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmFormularioPadre f = new frmFormularioPadre();
-            f.Show();
+            formu.Show();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
