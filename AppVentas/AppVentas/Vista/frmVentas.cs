@@ -78,18 +78,12 @@ namespace AppVentas.Vista
             }
 
             dgvVentas.Rows.Add(txtCodigoPro.Text, txtNombrePro.Text, txtPrecioPro.Text, txtCantidad.Text, txtTotal.Text);
-            Double suma = 0;
-            for (int i=0;i<dgvVentas.RowCount;i++) {
-                String datodAOperar = dgvVentas.Rows[i].Cells[4].Value.ToString();
-                Double datosConvertidos = Convert.ToDouble(datodAOperar);
-                //Double datosConvertidos1 = Double.Parse(datodAOperar);
-                
-                //suma = suma + datosConvertidos;
-                suma += datosConvertidos;
-
-                txtTotalFinal.Text = suma.ToString();
-
-            }
+            calculartotalfinal();
+            //dgvVentas.Refresh();
+            dgvVentas.ClearSelection();
+            int obtenerultimafila = dgvVentas.Rows.Count - 1;
+            dgvVentas.FirstDisplayedScrollingRowIndex = obtenerultimafila;
+            dgvVentas.Rows[obtenerultimafila].Selected = true;
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -115,6 +109,22 @@ namespace AppVentas.Vista
                 txtCantidad.Text = "1";
                 txtCantidad.Select();
                 //MessageBox.Show(ex.ToString());
+            }
+        }
+
+        void calculartotalfinal()
+        {
+            Double suma = 0;
+            for (int i=0;i<dgvVentas.RowCount;i++) {
+                String datodAOperar = dgvVentas.Rows[i].Cells[4].Value.ToString();
+        Double datosConvertidos = Convert.ToDouble(datodAOperar);
+        //Double datosConvertidos1 = Double.Parse(datodAOperar);
+
+        //suma = suma + datosConvertidos;
+        suma += datosConvertidos;
+
+                txtTotalFinal.Text = suma.ToString();
+
             }
         }
 
@@ -213,6 +223,16 @@ namespace AppVentas.Vista
         private void bttnCerrar_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void dgvVentas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            calculartotalfinal();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvVentas.Rows.Remove(dgvVentas.CurrentRow);
         }
     }
 }

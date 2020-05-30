@@ -59,6 +59,7 @@
             this.bttnGuardarVenta = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.bttnCerrar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -260,6 +261,7 @@
             this.dgvVentas.RowTemplate.Height = 24;
             this.dgvVentas.Size = new System.Drawing.Size(802, 427);
             this.dgvVentas.TabIndex = 21;
+            this.dgvVentas.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvVentas_RowsRemoved);
             // 
             // CODIGO
             // 
@@ -359,6 +361,16 @@
             this.bttnCerrar.UseVisualStyleBackColor = true;
             this.bttnCerrar.Click += new System.EventHandler(this.bttnCerrar_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(315, 641);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 29);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Borrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmVentas
             // 
             this.AcceptButton = this.btnadd;
@@ -367,6 +379,7 @@
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1395, 729);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bttnCerrar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.bttnGuardarVenta);
@@ -438,5 +451,6 @@
         private System.Windows.Forms.Button bttnGuardarVenta;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button bttnCerrar;
+        private System.Windows.Forms.Button button1;
     }
 }
